@@ -3,6 +3,7 @@ package com.sys.util;
 
 import java.lang.reflect.Field;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -181,6 +182,12 @@ public class JdbcUtils{
         // 对于其他类型，这里简单地返回null（实际项目中可能需要添加更多的类型转换逻辑）
         return null;
     }
+
+    public static String SqlDateToString(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
+    }
+
     // 关闭连接（注意：这里只是归还连接池，并非真正关闭连接）
     public static void close(Connection conn) {
         if (conn != null) {

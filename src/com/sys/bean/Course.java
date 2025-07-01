@@ -1,5 +1,6 @@
 package com.sys.bean;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 public class Course {
     private String cno;

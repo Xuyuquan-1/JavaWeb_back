@@ -4,6 +4,28 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+
+    <servlet>
+        <servlet-name>SelectTeachServlet</servlet-name>
+        <servlet-class >com.sys.controller.SelectTeachServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SelectTeachServlet</servlet-name>
+        <url-pattern>/selectteach</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SelectLearnServlet</servlet-name>
+        <servlet-class >com.sys.controller.SelectLearnServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SelectLearnServlet</servlet-name>
+        <url-pattern>/selectlearn</url-pattern>
+    </servlet-mapping>
+
+
     <servlet>
         <servlet-name>SerialTestServlet</servlet-name>
         <servlet-class >com.sys.controller.SerialTestServlet</servlet-class>
