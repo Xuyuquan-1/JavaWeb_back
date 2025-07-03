@@ -7,6 +7,7 @@ public class Teacher {
     private String taccount;
     private String tpwd;
     private String ttel;
+    private String cname;
 
     public String getTno() {
         return tno;
@@ -54,6 +55,14 @@ public class Teacher {
 
     public void setTpwd(String tpwd) {
         this.tpwd = tpwd;
+    }
+
+    public String getCname() {
+        return cname;
+    }
+
+    public void setCname(String cname) {
+        this.cname = cname;
     }
 
 

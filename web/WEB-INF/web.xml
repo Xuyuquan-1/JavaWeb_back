@@ -25,6 +25,16 @@
         <url-pattern>/selectlearn</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddTeacherServlet</servlet-name>
+        <servlet-class >com.sys.controller.AddTeacherServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddTeacherServlet</servlet-name>
+        <url-pattern>/addteacher</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>SerialTestServlet</servlet-name>

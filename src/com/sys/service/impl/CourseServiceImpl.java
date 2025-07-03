@@ -8,10 +8,10 @@ import com.sys.util.OperationResult;
 import java.util.List;
 
 public class CourseServiceImpl implements CourseService {
-    public OperationResult<List<Course>> selectAll() {
+    public OperationResult<List<Course>> selectAll(String text) {
         CourseDaoImpl courseDao = new CourseDaoImpl();
         try {
-            return new OperationResult<List<Course>>(0, "查询成功",courseDao.selectAll());
+            return new OperationResult<List<Course>>(0, "查询成功",courseDao.selectAll(text));
         } catch (Exception e) {
             e.printStackTrace();
             return new OperationResult<List<Course>>(1, "查询失败");

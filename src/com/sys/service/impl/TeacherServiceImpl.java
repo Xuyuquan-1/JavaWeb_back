@@ -10,16 +10,26 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class TeacherServiceImpl implements TeacherService {
-    public OperationResult<List<Teacher>> selectAll() throws SQLException, IllegalAccessException, InstantiationException {
+    public OperationResult<List<Teacher>> selectAll(String text) throws SQLException, IllegalAccessException, InstantiationException {
         TeacherDaoImpl teacherDao = new TeacherDaoImpl();
+//        teacherDao.getCnoByCname("数据结构");
         try {
 
-//            for (Teacher teacher : teacherDao.selectAll())
-//            System.out.println(teacher.getCno());
-            return new OperationResult<> (0, "查询成功", teacherDao.selectAll());
+            return new OperationResult<> (0, "查询成功", teacherDao.selectAllwithCourseName(text));
         } catch (Exception e) {
             e.printStackTrace();
             return new OperationResult<> (1, "查询失败");
+        }
+    }
+
+    public OperationResult<Integer> addTeacher(Teacher teacher)
+    {
+        TeacherDaoImpl teacherDao = new TeacherDaoImpl();
+        try {
+            return new OperationResult<> (0, "添加成功", teacherDao.addTeacher(teacher));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new OperationResult<> (1, "添加失败");
         }
     }
 }
