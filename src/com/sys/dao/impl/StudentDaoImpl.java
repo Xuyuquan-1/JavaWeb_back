@@ -1,5 +1,6 @@
 package com.sys.dao.impl;
 
+import com.sys.bean.Admin;
 import com.sys.bean.Student;
 import com.sys.dao.interfaces.StudentDao;
 import com.sys.util.JdbcUtils;
@@ -36,6 +37,13 @@ public class StudentDaoImpl implements StudentDao {
 
     public int delStudent(String sno) {
         String sql = "delete from student where sno = ?";
+        String deleteLearnSql = "DELETE FROM learn WHERE sno = ?";
+        String deleteTeachSql = "DELETE FROM teach WHERE sno = ?";
+
+        // 先删除 teach 和 learn 表中的关联数据
+        JdbcUtils.update(deleteTeachSql, sno);
+        JdbcUtils.update(deleteLearnSql, sno);
+
         return JdbcUtils.update(sql, sno);
     }
 
@@ -52,5 +60,15 @@ public class StudentDaoImpl implements StudentDao {
             return list.get(0);
         }
         return null;
+    }
+
+    public List<Student> checkStudent(Student  student) throws SQLException, IllegalAccessException, InstantiationException {
+        String sql = "select * from student where saccount = ? and spwd = ?";
+        List<Student> list = null;
+        list = JdbcUtils.convertResultSetToList(JdbcUtils.query(sql, student.getSaccount(), student.getSpwd()), Student.class);
+        if(list.isEmpty()) {
+            return null;
+        }
+        return list;
     }
 }

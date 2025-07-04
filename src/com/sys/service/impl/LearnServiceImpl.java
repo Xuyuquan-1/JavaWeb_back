@@ -101,7 +101,15 @@ public class LearnServiceImpl implements LearnService {
         }
         return new OperationResult<Integer>(0, "删除成功", learnDao.delLearn(learn));
     }
-
+    public OperationResult<List<Learn>> selectAllByPersonal(String account) {
+        LearnDaoImpl learnDao = new LearnDaoImpl();
+        try {
+            return new OperationResult<List<Learn>>(0, "查询成功", learnDao.selectAllByPersonal(account));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new OperationResult<List<Learn>>(1, "查询失败");
+        }
+    }
 
 
 }

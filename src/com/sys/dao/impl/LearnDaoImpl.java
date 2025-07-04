@@ -1,6 +1,7 @@
 package com.sys.dao.impl;
 
 import com.sys.bean.Learn;
+import com.sys.bean.Student;
 import com.sys.bean.Teach;
 import com.sys.dao.interfaces.LearnDao;
 import com.sys.util.JdbcUtils;
@@ -41,6 +42,13 @@ public class LearnDaoImpl implements LearnDao {
     {
     	String sql = "delete from learn where sno=? and cno=?";
         return JdbcUtils.update(sql, learn.getSno(), learn.getCno());
+    }
+
+    public List<Learn> selectAllByPersonal(String account) throws SQLException, IllegalAccessException, InstantiationException {
+        String name = JdbcUtils.convertResultSetToList(JdbcUtils.query("select * from student where saccount="+ "\'"+account+"\'"), Student.class).get(0).getSname();
+        String sql = "select * from teachwithname where sname="+ "\'"+name+"\'";
+        System.out.println("Daoname: "+ name);
+        return JdbcUtils.convertResultSetToList(JdbcUtils.query(sql), Learn.class);
     }
 
 }

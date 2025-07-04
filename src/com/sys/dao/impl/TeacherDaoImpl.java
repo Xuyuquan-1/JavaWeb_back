@@ -1,5 +1,6 @@
 package com.sys.dao.impl;
 
+import com.sys.bean.Student;
 import com.sys.bean.Teacher;
 import com.sys.dao.interfaces.TeacherDao;
 import com.sys.util.JdbcUtils;
@@ -63,6 +64,10 @@ public class TeacherDaoImpl implements TeacherDao {
 
     public int delTeacher(String tno) {
         String sql = "delete from teacher where tno = ?";
+        String deleteteachsql = "delete from teach where tno = ?";
+
+        JdbcUtils.update(deleteteachsql, tno);
+
         return JdbcUtils.update(sql, tno);
     }
 
@@ -70,5 +75,15 @@ public class TeacherDaoImpl implements TeacherDao {
         String sql = "update teacher set  taccount = ?, tpwd = ?, ttel = ? where tno = ?";
         return JdbcUtils.update(sql, teacher.getTaccount(),teacher.getTpwd(),teacher.getTtel(),teacher.getTno());
 
+    }
+
+    public List<Teacher> checkTeacher(Teacher teacher) throws SQLException, IllegalAccessException, InstantiationException {
+        String sql = "select * from teacher where taccount = ? and tpwd = ?";
+        List<Teacher> list = null;
+        list = JdbcUtils.convertResultSetToList(JdbcUtils.query(sql, teacher.getTaccount(), teacher.getTpwd()), Teacher.class);
+        if(list.isEmpty()) {
+            return null;
+        }
+        return list;
     }
 }

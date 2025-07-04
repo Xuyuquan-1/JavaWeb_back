@@ -37,6 +37,10 @@ public class CourseDaoImpl implements CourseDao {
 
     public int delCourse(String cno) {
         String sql = "delete from course where cno = ?";
+        String deletesql = "delete from learn where cno = ?";
+
+        JdbcUtils.update(deletesql, cno);
+
         return JdbcUtils.update(sql, cno);
     }
 

@@ -16,6 +16,16 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>SelectPersonalScoreServlet</servlet-name>
+        <servlet-class >com.sys.controller.SelectPersonalScoreServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SelectPersonalScoreServlet</servlet-name>
+        <url-pattern>/selectpersonalscore</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>SelectLearnServlet</servlet-name>
         <servlet-class >com.sys.controller.SelectLearnServlet</servlet-class>
     </servlet>
@@ -23,6 +33,37 @@
     <servlet-mapping>
         <servlet-name>SelectLearnServlet</servlet-name>
         <url-pattern>/selectlearn</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CheckAdminServlet</servlet-name>
+        <servlet-class >com.sys.controller.CheckAdminServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CheckAdminServlet</servlet-name>
+        <url-pattern>/checkadmin</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>CheckStudentServlet</servlet-name>
+        <servlet-class >com.sys.controller.CheckStudentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CheckStudentServlet</servlet-name>
+        <url-pattern>/checkstudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CheckTeacherServlet</servlet-name>
+        <servlet-class >com.sys.controller.CheckTeacherServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CheckTeacherServlet</servlet-name>
+        <url-pattern>/checkteacher</url-pattern>
     </servlet-mapping>
 
     <servlet>

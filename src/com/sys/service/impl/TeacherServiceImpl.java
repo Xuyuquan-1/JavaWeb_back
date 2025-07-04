@@ -1,6 +1,8 @@
 package com.sys.service.impl;
 
+import com.sys.bean.Student;
 import com.sys.bean.Teacher;
+import com.sys.dao.impl.StudentDaoImpl;
 import com.sys.dao.impl.TeacherDaoImpl;
 import com.sys.dao.interfaces.TeacherDao;
 import com.sys.service.interfaces.TeacherService;
@@ -56,6 +58,23 @@ public class TeacherServiceImpl implements TeacherService {
         } catch (Exception e) {
             e.printStackTrace();
             return new OperationResult<> (1, "修改失败");
+        }
+    }
+
+    public OperationResult<List<Teacher>> checkTeacher(Teacher teacher) throws Exception {
+        TeacherDaoImpl teacherDao = new TeacherDaoImpl();
+        List<Teacher> list = null;
+        try {
+            list = teacherDao.checkTeacher(teacher);
+            if(!list.isEmpty()) {
+                return new OperationResult<>(0, "check success", list);
+            }
+            else {
+                return new OperationResult<>(1, "check fail", list);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new OperationResult<>(1, "未知错误");
         }
     }
 }

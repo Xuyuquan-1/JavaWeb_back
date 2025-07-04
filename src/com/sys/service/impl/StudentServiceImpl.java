@@ -1,6 +1,8 @@
 package com.sys.service.impl;
 
+import com.sys.bean.Admin;
 import com.sys.bean.Student;
+import com.sys.dao.impl.AdminDaoImpl;
 import com.sys.dao.impl.StudentDaoImpl;
 import com.sys.service.interfaces.StudentService;
 import com.sys.util.OperationResult;
@@ -46,6 +48,24 @@ public class StudentServiceImpl implements StudentService {
         } catch (Exception e) {
             e.printStackTrace();
             return new OperationResult<> (1, "修改失败");
+        }
+    }
+
+
+    public OperationResult<List<Student>> checkStudent(Student student) throws Exception {
+        StudentDaoImpl studentDao = new StudentDaoImpl();
+        List<Student> list = null;
+        try {
+            list = studentDao.checkStudent(student);
+            if(!list.isEmpty()) {
+                return new OperationResult<>(0, "check success", list);
+            }
+            else {
+                return new OperationResult<>(1, "check fail", list);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new OperationResult<>(1, "未知错误");
         }
     }
 }
