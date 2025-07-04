@@ -29,4 +29,29 @@ public class CourseDaoImpl implements CourseDao {
         return JdbcUtils.convertResultSetToList(JdbcUtils.query(sql), Course.class);
 
     }
+
+    public int addCourse(Course course) throws SQLException, IllegalAccessException, InstantiationException {
+        String sql = "insert into course values(?,?,?,?)";
+        return JdbcUtils.update(sql, course.getCno(),course.getCname(),course.getCsdate(),course.getCedate());
+    }
+
+    public int delCourse(String cno) {
+        String sql = "delete from course where cno = ?";
+        return JdbcUtils.update(sql, cno);
+    }
+
+    public int editCourse(Course course) {
+        String sql = "update course set cname = ?,csdate = ?,cedate = ? where cno = ?";
+        return JdbcUtils.update(sql, course.getCname(),course.getCsdate(),course.getCedate(),course.getCno());
+    }
+
+
+    public  Course getCourseByCno(String cname) throws SQLException, IllegalAccessException, InstantiationException {
+        String sql = "select * from course where cname = ?";
+        List<Course> list = JdbcUtils.convertResultSetToList(JdbcUtils.query(sql, cname), Course.class);
+        if (!list.isEmpty()) {
+            return list.get(0);
+        }
+        return null;
+    }
 }

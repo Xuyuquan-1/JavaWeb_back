@@ -20,4 +20,27 @@ public class LearnDaoImpl implements LearnDao {
         return JdbcUtils.convertResultSetToList(JdbcUtils.query(sql), Learn.class);
     }
 
+    public List<Learn> selectAllByCname(String text) throws SQLException, IllegalAccessException, InstantiationException {
+        String sql = "select * from teachwithname where cname like '%"+text+"%'";
+        return JdbcUtils.convertResultSetToList(JdbcUtils.query(sql), Learn.class);
+    }
+
+    public int addLearn(Learn learn) throws SQLException, IllegalAccessException, InstantiationException
+    {
+    	String sql = "insert into learn(sno, cno, score) values(?,?,?)";
+    	return JdbcUtils.update(sql, learn.getSno(), learn.getCno(), learn.getScore());
+    }
+
+    public int editLearn(Learn learn)
+    {
+    	String sql = "update learn set score=? where sno=? and cno=?";
+    	return JdbcUtils.update(sql, learn.getScore(), learn.getSno(), learn.getCno());
+    }
+
+    public int delLearn(Learn learn)
+    {
+    	String sql = "delete from learn where sno=? and cno=?";
+        return JdbcUtils.update(sql, learn.getSno(), learn.getCno());
+    }
+
 }

@@ -19,4 +19,33 @@ public class StudentServiceImpl implements StudentService {
         }
 
     }
+
+    public OperationResult<Integer> addStudent(Student student) {
+        StudentDaoImpl studentDao = new StudentDaoImpl();
+        try {
+            return new OperationResult<>(0, "添加成功", studentDao.addStudent(student));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new OperationResult<> (1, "添加失败");
+        }
+    }
+
+    public OperationResult<Integer> delStudent(String sno) {
+        StudentDaoImpl studentDao = new StudentDaoImpl();
+        try {
+            return new OperationResult<>(0, "删除成功", studentDao.delStudent(sno));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new OperationResult<> (1, "删除失败");
+        }
+    }
+    public OperationResult<Integer> editStudent(Student student) {
+        StudentDaoImpl studentDao = new StudentDaoImpl();
+        try {
+            return new OperationResult<>(0, "修改成功", studentDao.editStudent(student));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new OperationResult<> (1, "修改失败");
+        }
+    }
 }

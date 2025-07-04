@@ -36,6 +36,16 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>AddScoreServlet</servlet-name>
+        <servlet-class >com.sys.controller.AddScoreServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddScoreServlet</servlet-name>
+        <url-pattern>/addscore</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>DelTeacherServlet</servlet-name>
         <servlet-class >com.sys.controller.DelTeacherServlet</servlet-class>
     </servlet>
@@ -46,6 +56,36 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>DelStudentServlet</servlet-name>
+        <servlet-class >com.sys.controller.DelStudentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DelStudentServlet</servlet-name>
+        <url-pattern>/delstudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DelCourseServlet</servlet-name>
+        <servlet-class >com.sys.controller.DelCourseServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DelCourseServlet</servlet-name>
+        <url-pattern>/delcourse</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DelScoreServlet</servlet-name>
+        <servlet-class >com.sys.controller.DelScoreServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DelScoreServlet</servlet-name>
+        <url-pattern>/delscore</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>EditTeacherServlet</servlet-name>
         <servlet-class >com.sys.controller.EditTeacherServlet</servlet-class>
     </servlet>
@@ -53,6 +93,56 @@
     <servlet-mapping>
         <servlet-name>EditTeacherServlet</servlet-name>
         <url-pattern>/editteacher</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditScoreServlet</servlet-name>
+        <servlet-class >com.sys.controller.EditScoreServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EditScoreServlet</servlet-name>
+        <url-pattern>/editscore</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditCourseServlet</servlet-name>
+        <servlet-class >com.sys.controller.EditCourseServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EditCourseServlet</servlet-name>
+        <url-pattern>/editcourse</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditStudentServlet</servlet-name>
+        <servlet-class >com.sys.controller.EditStudentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EditStudentServlet</servlet-name>
+        <url-pattern>/editstudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddStudentServlet</servlet-name>
+        <servlet-class >com.sys.controller.AddStudentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddStudentServlet</servlet-name>
+        <url-pattern>/addstudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddCourseServlet</servlet-name>
+        <servlet-class >com.sys.controller.AddCourseServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddCourseServlet</servlet-name>
+        <url-pattern>/addcourse</url-pattern>
     </servlet-mapping>
 
 
