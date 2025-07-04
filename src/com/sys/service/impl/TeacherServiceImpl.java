@@ -32,4 +32,30 @@ public class TeacherServiceImpl implements TeacherService {
             return new OperationResult<> (1, "添加失败");
         }
     }
+
+    public OperationResult<Integer> delTeacher(String tno)
+    {
+        if (tno == null || tno.equals(""))
+            return new OperationResult<> (1, "请选择要删除的教师");
+        TeacherDaoImpl teacherDao = new TeacherDaoImpl();
+        try {
+            return new OperationResult<> (0, "删除成功", teacherDao.delTeacher(tno));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new OperationResult<> (1, "删除失败");
+        }
+    }
+
+    public OperationResult<Integer> editTeacher(Teacher teacher)
+    {
+        if(teacher.getTno() == null || teacher.getTno().isEmpty())
+            return new OperationResult<> (1, "请选择要修改的教师");
+        TeacherDaoImpl teacherDao = new TeacherDaoImpl();
+        try {
+            return new OperationResult<> (0, "修改成功", teacherDao.editTeacher(teacher));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new OperationResult<> (1, "修改失败");
+        }
+    }
 }

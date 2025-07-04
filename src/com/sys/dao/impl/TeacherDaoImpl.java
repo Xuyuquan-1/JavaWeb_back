@@ -60,4 +60,15 @@ public class TeacherDaoImpl implements TeacherDao {
 
         return JdbcUtils.update(sql, teacher.getTno(),tempcno,teacher.getTname(),teacher.getTaccount(),teacher.getTpwd(),teacher.getTtel());
     }
+
+    public int delTeacher(String tno) {
+        String sql = "delete from teacher where tno = ?";
+        return JdbcUtils.update(sql, tno);
+    }
+
+    public int editTeacher(Teacher teacher) {
+        String sql = "update teacher set  taccount = ?, tpwd = ?, ttel = ? where tno = ?";
+        return JdbcUtils.update(sql, teacher.getTaccount(),teacher.getTpwd(),teacher.getTtel(),teacher.getTno());
+
+    }
 }

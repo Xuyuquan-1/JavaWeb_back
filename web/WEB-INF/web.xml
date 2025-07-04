@@ -35,6 +35,26 @@
         <url-pattern>/addteacher</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>DelTeacherServlet</servlet-name>
+        <servlet-class >com.sys.controller.DelTeacherServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DelTeacherServlet</servlet-name>
+        <url-pattern>/delteacher</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditTeacherServlet</servlet-name>
+        <servlet-class >com.sys.controller.EditTeacherServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EditTeacherServlet</servlet-name>
+        <url-pattern>/editteacher</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>SerialTestServlet</servlet-name>
